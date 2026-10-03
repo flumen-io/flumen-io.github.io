@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FLUMEN ─ Indie Windows Apps</title>
+<meta name="description" content="FLUMEN(フルーメン)の公式サイトです。Windows向けアプリ「CoinNoteCollection(世界貨幣コレクション)」を制作しています。FLUMEN creates Windows desktop apps, including CoinNoteCollection, a free coin and banknote collection app.">
+<meta name="keywords" content="FLUMEN, フルーメン, CoinNoteCollection, 世界貨幣コレクション, コイン収集アプリ, LINEスタンプ, 個人開発, indie developer, Windows app, coin collection app, LINE stickers">
+<link rel="canonical" href="https://flumen-io.github.io/index-en.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FLUMEN">
+<meta property="og:title" content="FLUMEN ─ Indie Windows Apps">
+<meta property="og:description" content="FLUMEN creates Windows desktop apps.">
+<meta property="og:url" content="https://flumen-io.github.io/index-en.html">
+<meta property="og:image" content="https://flumen-io.github.io/images/app-icon.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="images/app-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FLUMEN",
+  "url": "https://flumen-io.github.io/",
+  "slogan": "quod fluit, manet",
+  "description": "FLUMEN creates Windows desktop apps."
+}
+</script>
+<style>
+  :root{
+    --cream:#f6f1e6; --panel:#fffdf8; --ink:#2f2b24; --muted:#6b6353;
+    --brass:#8a6d3b; --brass-deep:#5c4826; --line:#e0d6bf;
+    --hero-0:#221b10; --hero-1:#0b0906; --hero-ink:#f5ecd8; --hero-muted:#cbb98f; --hero-brass:#e9cd94;
+    --serif:Palatino,"Palatino Linotype","Iowan Old Style",Georgia,serif;
+    --sans:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --cream:#1c1a15; --panel:#25221c; --ink:#ede6d6; --muted:#b0a68d;
+      --brass:#d4af6a; --brass-deep:#e9cd94; --line:#3a3527;
+    }
+  }
+  :root[data-theme="dark"]{
+    --cream:#1c1a15; --panel:#25221c; --ink:#ede6d6; --muted:#b0a68d;
+    --brass:#d4af6a; --brass-deep:#e9cd94; --line:#3a3527;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } .river path{ animation:none !important; } }
+  body{ margin:0; background:var(--cream); color:var(--ink); font-family:var(--sans); font-size:15px; line-height:1.85; }
+  a{ color:var(--brass-deep); }
+  a:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; border-radius:4px; }
+  .wrap{ max-width:920px; margin:0 auto; padding:0 24px; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative; overflow:hidden; color:var(--hero-ink); text-align:center;
+    background:radial-gradient(120% 90% at 50% 0%, var(--hero-0), var(--hero-1));
+    padding:92px 24px 86px;
+  }
+  .river{ position:absolute; inset:auto 0 0 0; width:100%; height:40%; pointer-events:none; }
+  .river path{ fill:none; stroke:var(--hero-brass); stroke-linecap:round; animation:drift 16s ease-in-out infinite alternate; }
+  .river path:nth-child(2){ animation-duration:21s; }
+  .river path:nth-child(3){ animation-duration:26s; }
+  @keyframes drift{ from{ transform:translateX(-36px); } to{ transform:translateX(36px); } }
+  .hero-inner{ position:relative; }
+  .hero-mark{ width:84px; height:84px; filter:drop-shadow(0 0 18px rgba(233,205,148,0.25)); }
+  .hero h1{ margin:16px 0 0; font-family:var(--serif); font-weight:400; font-size:clamp(42px, 8vw, 78px); letter-spacing:0.24em; line-height:1.05; padding-left:0.24em; }
+  .motto{ margin:10px 0 0; font-family:var(--serif); font-style:italic; color:var(--hero-brass); font-size:17px; }
+  .motto small{ display:block; font-style:normal; font-family:var(--sans); color:var(--hero-muted); font-size:12.5px; letter-spacing:0.1em; margin-top:3px; }
+  .tagline{ margin:14px 0 0; font-family:var(--serif); font-style:italic; color:var(--hero-brass); font-size:18px; letter-spacing:0.03em; }
+  .tagline-ja{ margin:10px auto 0; max-width:none; color:var(--hero-muted); font-size:14.5px; }
+  .hero p.what{ margin:26px auto 0; max-width:28em; color:var(--hero-muted); }
+  .hero p.what-en{ margin:4px auto 0; color:var(--hero-muted); opacity:0.7; font-family:var(--serif); font-size:13.5px; }
+
+  .lang-switch{
+    display:inline-block; width:auto;
+    position:absolute; top:18px; right:24px; z-index:5;
+    font-size:13px; color:#e9cd94;
+    background:rgba(0,0,0,0.35);
+    border:1px solid rgba(233,205,148,0.45);
+    border-radius:999px; padding:5px 14px; letter-spacing:0.04em;
+  }
+  .lang-switch a{ text-decoration:none; color:#e9cd94; }
+  .lang-switch a:hover{ color:#fff6e2; text-decoration:underline; }
+  .lang-switch .current{ color:#fff6e2; font-weight:700; }
+  /* ---------- sections ---------- */
+  section{ padding:78px 0 0; }
+  .eyebrow{ margin:0; font-family:var(--serif); text-transform:uppercase; letter-spacing:0.22em; font-size:12px; color:var(--brass); }
+  h2{ margin:4px 0 26px; font-size:25px; letter-spacing:0.04em; }
+
+  /* ---------- works ---------- */
+  .works{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; }
+  .work{
+    display:flex; gap:18px; align-items:flex-start;
+    background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:22px;
+  }
+  .work img, .work .ph{ width:64px; height:64px; border-radius:12px; flex-shrink:0; }
+  .work .ph{ display:grid; place-items:center; border:1px dashed var(--line); color:var(--brass); }
+  .work .ph svg{ width:28px; height:28px; }
+  .work h3{ margin:0; font-size:17px; }
+  .work .kind{ margin:0; font-size:12px; color:var(--muted); letter-spacing:0.06em; }
+  .work p.note{ margin:8px 0 0; font-size:14px; color:var(--muted); }
+  .work .more{ display:inline-block; margin-top:10px; font-size:14px; font-weight:700; text-decoration:none; }
+  .work .more::after{ content:" →"; }
+  .work-actions{ display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
+  .work-btn{
+    display:inline-flex; align-items:center; text-decoration:none;
+    padding:8px 16px; border-radius:999px; font-size:13px; font-weight:700;
+    border:1.5px solid var(--brass); color:var(--brass-deep);
+  }
+  .work-btn.primary{ background:var(--brass-deep); border-color:var(--brass-deep); color:var(--panel); }
+  .work-btn:hover{ filter:brightness(1.08); }
+  .status{ display:inline-block; margin-left:8px; font-size:11px; padding:1px 9px; border-radius:999px; border:1px solid var(--brass); color:var(--brass-deep); vertical-align:1px; }
+  .status.soon{ border-style:dashed; color:var(--muted); border-color:var(--line); }
+
+  .side-note{ margin:18px 0 0; font-size:13.5px; color:var(--muted); }
+
+  /* ---------- news ---------- */
+  .news{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
+  .news li{ display:grid; grid-template-columns:110px 1fr; gap:16px; align-items:baseline; padding:15px 4px; border-bottom:1px solid var(--line); }
+  .news time{ font-family:var(--serif); color:var(--muted); font-variant-numeric:tabular-nums; }
+  .news p{ margin:0; }
+  .news p small{ display:block; color:var(--muted); font-size:13px; }
+
+  footer{ margin-top:88px; padding:30px 24px 42px; border-top:1px solid var(--line); text-align:center; color:var(--muted); font-size:13px; }
+  .foot-mark{ display:inline-flex; align-items:center; gap:8px; }
+  .foot-mark svg{ width:20px; height:20px; }
+  .foot-mark b{ font-family:var(--serif); font-weight:400; letter-spacing:0.24em; color:var(--ink); }
+
+  @media (max-width:640px){
+    .news li{ grid-template-columns:1fr; gap:2px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="lang-switch"><a href="index.html">日本語</a> / <span class="current">English</span></div>
+  <svg class="river" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-60 230 C 200 170, 360 290, 600 230 S 1000 170, 1260 230" stroke-width="1.6" opacity="0.26"/>
+    <path d="M-60 290 C 220 230, 380 350, 600 290 S 980 230, 1260 290" stroke-width="2.4" opacity="0.17"/>
+    <path d="M-60 350 C 180 300, 400 400, 600 350 S 1020 300, 1260 350" stroke-width="1.2" opacity="0.11"/>
+  </svg>
+  <div class="hero-inner">
+    <svg class="hero-mark" viewBox="0 0 120 120" fill="none" role="img" aria-label="FLUMEN">
+      <circle cx="60" cy="60" r="57" stroke="#e9cd94" stroke-width="3"/>
+      <path d="M20 46 C 38 36, 46 56, 60 50 S 84 40, 100 50" stroke="#f5ecd8" stroke-width="6" stroke-linecap="round"/>
+      <path d="M18 60 C 36 50, 46 70, 60 64 S 86 54, 102 64" stroke="#e9cd94" stroke-width="8" stroke-linecap="round"/>
+      <path d="M20 74 C 38 64, 46 84, 60 78 S 84 68, 100 78" stroke="#f5ecd8" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
+    </svg>
+    <h1>FLUMEN</h1>
+    <p class="tagline" lang="en">Small tools, curious ideas.</p>
+    <p class="tagline-ja">FLUMEN means &ldquo;river&rdquo; in Latin.<br>A personal project that turns ideas from everyday work and curiosity into tools, freely.</p>
+
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ===================== 制作物 ===================== -->
+  <section id="works" aria-labelledby="works-title">
+    <h2 id="works-title" style="margin-top:0;">Works</h2>
+    <div class="works">
+
+      <!-- ▼ 公開中:CoinNoteCollection -->
+      <article class="work">
+        <img src="images/app-icon.png" alt="CoinNoteCollection アプリアイコン" width="64" height="64">
+        <div>
+          <h3>CoinNoteCollection<span class="status">Released</span></h3>
+          <p class="kind">Windows app / Free</p>
+          <p class="note">An app to record and manage your collection of coins and banknotes from around the world. Available on the Microsoft Store.</p>
+          <div class="work-actions">
+            <a class="work-btn" href="coincollection/index-en.html">Learn more</a>
+            <a class="work-btn primary" href="https://apps.microsoft.com/detail/9npn6tr4tpw6?cid=DevShareMCLPCS" target="_blank" rel="noopener">Download</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="work">
+        <div class="ph" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.3v5.4l4.7-2.7z" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <div>
+          <h3>YouTube<span class="status">Active</span></h3>
+          <p class="kind">Videos</p>
+          <p class="note">Videos introducing coins from the collection.</p>
+          <a class="more" href="https://www.youtube.com/channel/UC0Lhx-lXjCRgpQZwlBpLvyA" target="_blank" rel="noopener">Visit the channel</a>
+        </div>
+      </article>
+
+      <!-- ▼ 制作物が増えたら、この雛形の <!- - と - -> を外して使ってください
+      <article class="work">
+        <img src="images/○○.png" alt="" width="64" height="64">
+        <div>
+          <h3>名前<span class="status">公開中</span></h3>
+          <p class="kind">種類</p>
+          <p class="note">説明。</p>
+          <a class="more" href="#">詳しく見る</a>
+        </div>
+      </article>
+      -->
+
+    </div>
+    <!-- ▼ LINEスタンプ:販売ページのURLが決まったら href="#" を差し替え、hidden を消してください -->
+    <p class="side-note">We also make LINE stickers.<a id="lineLink" href="#" target="_blank" rel="noopener" hidden>Shop</a></p>
+  </section>
+
+  <!-- ===================== お知らせ ===================== -->
+  <section id="news" aria-labelledby="news-title">
+    <h2 id="news-title" style="margin-top:0;">News</h2>
+    <!-- ▼ 新しいお知らせは、一番上に <li>…</li> を1つ追加してください -->
+    <ul class="news">
+      <li>
+        <time datetime="2026-09-13">2026.09.13</time>
+        <p>CoinNoteCollection ver.1.0.3 released
+          <small>Photos are now stored as image files, and you can choose the folder they are saved to.</small></p>
+      </li>
+      <li>
+        <time datetime="2026-09-01">2026.09</time>
+        <p>CoinNoteCollection is now available on the Microsoft Store</p>
+      </li>
+    </ul>
+    <!-- ▲ ここまで -->
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-mark">
+    <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <circle cx="60" cy="60" r="55" stroke="var(--brass)" stroke-width="6"/>
+      <path d="M20 46 C 38 36, 46 56, 60 50 S 84 40, 100 50" stroke="var(--ink)" stroke-width="8" stroke-linecap="round"/>
+      <path d="M18 60 C 36 50, 46 70, 60 64 S 86 54, 102 64" stroke="var(--brass)" stroke-width="10" stroke-linecap="round"/>
+      <path d="M20 74 C 38 64, 46 84, 60 78 S 84 68, 100 78" stroke="var(--ink)" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+    </svg>
+    <b>FLUMEN</b>
+  </div>
+  <div>© FLUMEN</div>
+</footer>
+
+</body>
+</html>
